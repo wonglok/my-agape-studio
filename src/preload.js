@@ -15,6 +15,5 @@ ipcRenderer.on('file-reading-done', function (evt, message) {
 
 ipcRenderer.on('optimised-glb', function (evt, message) {
     console.log('preload, optimised-glb', message) // Returns: {'SAVED': 'File Saved'}
-
     window.dispatchEvent(new CustomEvent('optimised-glb', { detail: message }))
 })

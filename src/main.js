@@ -7,7 +7,8 @@ if (require('electron-squirrel-startup')) {
     app.quit()
 }
 
-const createWindow = (filePath = false) => {
+const createWindow = ({ file = false }) => {
+    let filePath = file
     // Create the browser window.
     const mainWindow = new BrowserWindow({
         width: 1024,
@@ -32,7 +33,7 @@ const createWindow = (filePath = false) => {
         if (filePath && filePath !== '.') {
             fs.readFile(filePath, async (err, fileData) => {
                 win.webContents.send('file-reading-done', {
-                    SAVED: 'File Saved',
+                    message: 'File reading done',
                     err,
                     filePath,
                     fileData: fileData,
@@ -43,7 +44,7 @@ const createWindow = (filePath = false) => {
             let filePath = path.join(__dirname, `glb/demo.glb`)
             fs.readFile(filePath, (err, fileData) => {
                 win.webContents.send('file-reading-done', {
-                    SAVED: 'File Saved',
+                    message: 'File reading done',
                     err,
                     filePath,
                     fileData: fileData,
@@ -62,7 +63,7 @@ app.on('will-finish-launching', () => {
             let tt = setInterval(() => {
                 if (app.isReady()) {
                     clearInterval(tt)
-                    createWindow(file)
+                    createWindow({ file: file })
                 }
             }, 0)
         })
@@ -77,7 +78,7 @@ app.on('ready', () => {
     let url = argsv[1]
 
     if (url) {
-        createWindow(url)
+        createWindow({ file: url })
     }
     // if (url) {
     //     initOpenFileQueue = url

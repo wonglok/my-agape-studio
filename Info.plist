@@ -301,11 +301,11 @@
             <dict>
 				<key>CFBundleTypeExtensions</key>
 				<array>
-					<string>glb</string>
-					<string>GLB</string>
+					<string>agape.json</string>
+					<string>AGAPE</string>
 				</array>
 				<key>CFBundleTypeName</key>
-				<string>GLB 3D File</string>
+				<string>AGAPE 3D File</string>
 				<key>CFBundleTypeRole</key>
 				<string>Viewer</string>
 				<key>LSHandlerRank</key>

@@ -157,16 +157,19 @@ export class GraphicsApp {
                 delta3.applyAxisAngle(up, this.orbit.getAzimuthalAngle())
                 this.chaseTarget.position.addScaledVector(delta3, dt * 10.0)
             }
+
             if (this.keyboardDown.s) {
                 delta3.set(0, 0, 1)
                 delta3.applyAxisAngle(up, this.orbit.getAzimuthalAngle())
                 this.chaseTarget.position.addScaledVector(delta3, dt * 10.0)
             }
+
             if (this.keyboardDown.a) {
                 delta3.set(-1, 0, 0)
                 delta3.applyAxisAngle(up, this.orbit.getAzimuthalAngle())
                 this.chaseTarget.position.addScaledVector(delta3, dt * 10.0)
             }
+
             if (this.keyboardDown.d) {
                 delta3.set(1, 0, 0)
                 delta3.applyAxisAngle(up, this.orbit.getAzimuthalAngle())

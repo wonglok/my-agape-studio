@@ -26,7 +26,44 @@
  * ```
  */
 
-import { GraphicsApp } from './gl/app/GraphicsApp'
+// import { GraphicsApp } from './gl/app/GraphicsApp'
 import './index.css'
 
-new GraphicsApp()
+// new GraphicsApp()
+
+import React from 'react'
+import { createRoot } from 'react-dom/client'
+import { createHashRouter, RouterProvider, Route, Link } from 'react-router-dom'
+
+const router = createHashRouter([
+    {
+        path: '/',
+        element: (
+            <div>
+                <h1>Hello World</h1>
+                <Link to='about'>About Us</Link>
+            </div>
+        ),
+    },
+    {
+        path: '/about',
+        element: (
+            <div>
+                <h1>Hello World</h1>
+                <Link to='/'>home</Link>
+            </div>
+        ),
+    },
+])
+
+createRoot(document.getElementById('root')).render(
+    <RouterProvider router={router} />
+)
+
+window.addEventListener('load', () => {
+    window.electronAPI.doneLoading('my-glb')
+})
+
+//
+
+//
